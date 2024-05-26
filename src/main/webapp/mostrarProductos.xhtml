@@ -1,0 +1,152 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./TemplateOnlineCommerce.xhtml">
+
+            <ui:define name="top">
+                <div class="navbar">
+                    <div class="logo"><img src="resources/img/Logo.png" width="50px" height="40px"> </img></div>
+
+
+                    <!--Barra Busqueda-->
+                    <div class="search">
+                        <input placeholder="Search..." type="text"> </input>
+                        <h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;" outcome="dashboard.xhtml" value="Dashboard" />
+                      </div>
+
+                    <!--Botones-->
+                    <div class="button-container">
+                        <button class="button">
+                            <img src="resources/img/casa.png" style="width: 40px; height: 40px;"> </img>
+                        </button>
+
+                        <button class="button">
+                            <img src="resources/img/usuario.png" style="width: 40px; height: 40px;"> </img>
+                        </button>
+
+                        <a href="file:///C:/Users/User/Documents/Online-Commerce-Scrum/Carrito.html">
+                            <button class="button">
+                                <img src="resources/img/carrito.png" style="width: 40px; height: 40px;"> </img>
+                            </button>
+                        </a>
+                    </div>
+
+                </div>
+            </ui:define>
+
+            <ui:define name="content">
+                <f:view>
+
+
+                    <h:form>
+                        <h:commandLink value="Crear Producto" action="#{controllerProduct.crearProductoP1()}"></h:commandLink>
+                        <h1><h:outputText value="List"/></h1>
+                        <h:dataTable value="#{controllerProduct.all}" var="item">
+                            
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="NombreProducto"/>
+                                </f:facet>
+                                <h:outputText value="#{item.nombreProducto}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Descripcion"/>
+                                </f:facet>
+                                <h:outputText value="#{item.descripcion}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Precio"/>
+                                </f:facet>
+                                <h:outputText value="#{item.precio}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="FechaVencimiento"/>
+                                </f:facet>
+                                <h:outputText value="#{item.fechaVencimiento}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Deleted"/>
+                                </f:facet>
+                                <h:outputText value="#{item.deleted}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="FechaModificado"/>
+                                </f:facet>
+                                <h:outputText value="#{item.fechaModificado}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="FechaCreacion"/>
+                                </f:facet>
+                                <h:outputText value="#{item.fechaCreacion}">
+                                    <f:convertDateTime pattern="MM/dd/yyyy" />
+                                </h:outputText>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="IdCategoriaProducto"/>
+                                </f:facet>
+                                <h:outputText value="#{item.idCategoriaProducto}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="IdImagen"/>
+                                </f:facet>
+                                <h:outputText value="#{item.idImagen}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="IdUsuarioModified"/>
+                                </f:facet>
+                                <h:outputText value="#{item.idUsuarioModified}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="IdUsuarioCreacion"/>
+                                </f:facet>
+                                <h:outputText value="#{item.idUsuarioCreacion}"/>
+                            </h:column>
+                            <h:column>
+                                <f:facet name="header">
+                                    <h:outputText value="Acciones"/>
+                                </f:facet>
+                                <h:commandButton value="Actualizar" action="#{controllerProduct.actualizarProductoP1(item)}"></h:commandButton>
+                                <h:commandButton value="Eliminar" action="#{controllerProduct.eliminarProducto(item)}" ></h:commandButton>
+                      
+                            </h:column>
+                        </h:dataTable>
+                    </h:form>
+                </f:view>
+
+            </ui:define>
+
+            <ui:define name="bottom">
+                <footer class="page padding trim">
+                    <div class="type">
+                        <p class="text-center">© 2021 Online Commerce. Todos los derechos reservados.</p>
+                        <p class="text-center">Calle Principal 123, Ciudad, Estado</p>
+                        <p class="text-center">Teléfono: 123-456-7890</p>
+                        <p class="text-center">Correo electrónico: info@onlinecommerce.com</p>
+                    </div>
+              </footer>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

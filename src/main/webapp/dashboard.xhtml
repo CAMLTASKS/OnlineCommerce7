@@ -1,0 +1,150 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+
+    <body>
+
+        <ui:composition template="./TemplateOnlineCommerce.xhtml">
+
+            <ui:define name="top">
+                <div class="navbar">
+                    <div class="logo"><img src="resources/img/Logo.png" width="50px" height="40px"> </img></div>
+
+
+                    <!--Barra Busqueda-->
+                    <div class="search">
+                        <input placeholder="Search..." type="text"> </input>
+                        
+                        <h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;" outcome="dashboard.xhtml" value="Dashboard" />
+
+                      </div>
+
+                    <!--Botones-->
+                    <div class="button-container">
+
+                        <button class="button">
+                            <img src="resources/img/casa.png" style="width: 40px; height: 40px;"> </img>
+                        </button>
+
+                        <button class="button">
+                            <img src="resources/img/usuario.png" style="width: 40px; height: 40px;"> </img>
+                        </button>
+
+                        <a href="file:///C:/Users/User/Documents/Online-Commerce-Scrum/Carrito.html">
+                            <button class="button">
+                                <img src="resources/img/carrito.png" style="width: 40px; height: 40px;"> </img>
+                            </button>
+                        </a>
+                    </div>
+
+                </div>
+            </ui:define>
+
+            <ui:define name="content">
+                
+                <div class="dashboard">
+                    <aside class="menu">
+                        <ul>
+                            <li><h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;" outcome="index.xhtml" value="Inicio" /></li>
+                            <li><h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;"  outcome="mostrarTiendas.xhtml" value="Tiendas" /></li>
+                            <li><h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;"  value="Inventario" /></li>
+                            <li><h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;" outcome="mostrarProductos.xhtml" value="Productos" /></li>
+                            <li><h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;" outcome="Enviarcorreo.xhtml" value="Correo" /></li>
+
+                                                   
+                        </ul>
+                    </aside>
+
+                    <main class="content">
+                        <header class="header">
+                            <h1>Dashboard de Gestión</h1>
+                        </header>
+
+                        <section class="stats">
+                            <div class="stat-card">
+                                <h3>Ventas Hoy</h3>
+                                <p>$1000</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>Ingresos Mensuales</h3>
+                                <p>$50000</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>Resumen de Ventas</h3>
+                                <p>$50000</p>
+                            </div>
+                        </section>
+
+                        <section class="stats">
+                            <div class="stat-card">
+                                <h3>Inventario</h3>
+                                <p>204 Productos</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>Informes y Estadisticas</h3>
+                                <p>$50000</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>Soporte y Ayuda</h3>
+                                <p>$50000</p>
+                            </div>
+                        </section>
+
+                        <section class="stats">
+                            <div class="stat-card">
+                                <h3>Gestion de Pedidos</h3>
+                                <p>$1000</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>Seguridad y Privacidad</h3>
+                                <p>$50000</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>Ingresos Mensuales</h3>
+                                <p>$50000</p>
+                            </div>
+                        </section>
+
+
+
+                    </main>
+
+                    <!-- Nueva fila a la derecha -->
+                    <aside class="right-panel">
+                        <section class="news">
+                            <h2 style="margin-left: 0px">Noticias</h2>
+                            <ul>
+                                <li>Actualización de producto</li>
+                                <li>Promoción especial</li>
+                            </ul>
+                        </section>
+
+                        <section class="tasks">
+                            <h2 style="margin-left: 0px">Tareas Pendientes</h2>
+                            <ul>
+                                <li>Revisar inventario</li>
+                                <li>Enviar informe mensual</li>
+                            </ul>
+                        </section>
+                    </aside>
+                </div>
+
+            </ui:define>
+
+            <ui:define name="bottom">
+                <footer class="page padding trim">
+                    <div class="type">
+                        <p class="text-center">© 2021 Online Commerce. Todos los derechos reservados.</p>
+                        <p class="text-center">Calle Principal 123, Ciudad, Estado</p>
+                        <p class="text-center">Teléfono: 123-456-7890</p>
+                        <p class="text-center">Correo electrónico: info@onlinecommerce.com</p>
+                    </div>
+                </footer>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

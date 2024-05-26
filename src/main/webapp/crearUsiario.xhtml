@@ -1,0 +1,110 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./TemplateOnlineCommerce.xhtml">
+
+            <ui:define name="top">
+                <div class="navbar">
+                    <div class="logo"><img src="resources/img/Logo.png" width="50px" height="40px"> </img></div>
+
+
+                    <!--Barra Busqueda-->
+                    <div class="search">
+                        <input placeholder="Search..." type="text"> </input>
+                        <h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;" outcome="dashboard.xhtml" value="Dashboard" />
+                      </div>
+
+                    <!--Botones-->
+                    <div class="button-container">
+                        <button class="button">
+                            <img src="resources/img/casa.png" style="width: 40px; height: 40px;"> </img>
+                        </button>
+
+                        <button class="button">
+                            <img src="resources/img/usuario.png" style="width: 40px; height: 40px;"> </img>
+                        </button>
+
+                        <a href="file:///C:/Users/User/Documents/Online-Commerce-Scrum/Carrito.html">
+                            <button class="button">
+                                <img src="resources/img/carrito.png" style="width: 40px; height: 40px;"> </img>
+                            </button>
+                        </a>
+                    </div>
+
+                </div>
+            </ui:define>
+
+            <ui:define name="content">
+                <f:view>
+
+
+                    <h:form>
+                        <h1><h:outputText value="Create/Edit"/></h1>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="Nombre:" for="nombre" />
+                            <h:inputText id="nombre" value="#{controllerUser.usuario.nombre}" title="Nombre" required="true" requiredMessage="The Nombre field is required."> 
+                                <f:validator validatorId="validadorUsuarioNombre"/>
+                            </h:inputText>
+                            <h:outputLabel value="Apellido:" for="apellido" />
+                            <h:inputText id="apellido" value="#{controllerUser.usuario.apellido}" title="Apellido" required="true" requiredMessage="The Apellido field is required."/>
+                            <h:outputLabel value="Correo:" for="correo" />
+                            <h:inputText id="correo" value="#{controllerUser.usuario.correo}" title="Correo" required="true" requiredMessage="The Correo field is required."> 
+                                <f:validator validatorId="validadorUsuarioCorreo" />
+                            </h:inputText>
+                            <h:outputLabel value="Contrasena:" for="contrasena" />
+                            <h:inputText id="contrasena" value="#{controllerUser.usuario.contrasena}" title="Contrasena" required="true" requiredMessage="The Contrasena field is required."> 
+                                <f:validator validatorId="validadorUsuarioPassword" />
+                            </h:inputText>
+                            <h:outputLabel value="Estado:" for="estado" />
+                            <h:inputText id="estado" value="#{controllerUser.usuario.estado}" title="Estado" />
+                            <h:outputLabel value="Deleted:" for="deleted" />
+                            <h:inputText id="deleted" value="#{controllerUser.usuario.deleted}" title="Deleted" />
+                            <h:outputLabel value="FechaCreacion:" for="fechaCreacion" />
+                            <h:inputText id="fechaCreacion" value="#{controllerUser.usuario.fechaCreacion}" title="FechaCreacion" >
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:inputText>
+                            <h:outputLabel value="FechaModificacion:" for="fechaModificacion" />
+                            <h:inputText id="fechaModificacion" value="#{controllerUser.usuario.fechaModificacion}" title="FechaModificacion" >
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:inputText>
+                            <h:outputLabel value="Telefono:" for="telefono" />
+                            <h:inputText id="telefono" value="#{controllerUser.usuario.telefono}" title="Telefono" />
+                            <h:outputLabel value="FechaNacimiento:" for="fechaNacimiento" />
+                            <h:inputText id="fechaNacimiento" value="#{controllerUser.usuario.fechaNacimiento}" title="FechaNacimiento" >
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:inputText>
+                            <h:outputLabel value="Cedula:" for="cedula" />
+                            <h:inputText id="cedula" value="#{controllerUser.usuario.cedula}" title="Cedula" />
+                            <h:outputLabel value="TipoCedula:" for="tipoCedula" />
+                            <h:inputText id="tipoCedula" value="#{controllerUser.usuario.tipoCedula}" title="TipoCedula" />
+                            <h:outputLabel value="Genero:" for="genero" />
+                            <h:inputText id="genero" value="#{controllerUser.usuario.genero}" title="Genero" />
+                        </h:panelGrid>
+                        
+                        <h:commandButton value="Crer usuario" action="#{controllerUser.crearUsuario()}"></h:commandButton>
+                    </h:form>
+                </f:view>
+
+            </ui:define>
+
+            <ui:define name="bottom">
+                <footer class="page padding trim">
+                    <div class="type">
+                        <p class="text-center">© 2021 Online Commerce. Todos los derechos reservados.</p>
+                        <p class="text-center">Calle Principal 123, Ciudad, Estado</p>
+                        <p class="text-center">Teléfono: 123-456-7890</p>
+                        <p class="text-center">Correo electrónico: info@onlinecommerce.com</p>
+                    </div>
+              </footer>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

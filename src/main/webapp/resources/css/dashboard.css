@@ -1,0 +1,108 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 29/03/2024, 10:10:42 a. m.
+    Author     : sebas
+*/
+
+
+body {
+    background-color: #ffffff;
+}
+
+.dashboard {
+    display: flex;
+}
+@media screen and (max-width: 768px) {
+    .dashboard {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.menu {
+    background-color: #ffffff;
+    color: #000000;
+    width: 210px;
+    padding: 20px;
+    height: 99%;
+    margin-top: 13px;
+    border-right: solid 3px #f8a232;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin-left: 20px;
+}
+
+.menu li {
+    margin-bottom: 10px;
+    margin-top: 35px;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #000000;
+    font-size: 30px;
+}
+
+.content {
+    flex-grow: 1;
+    padding: 20px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0px;
+}
+
+.stats {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.stat-card {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex-basis: 30%;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.stat-card h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.stat-card p {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.right-panel {
+    margin-right: 50px;
+    margin-top: 0px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+}
+
+/* Estilos para pantallas más pequeñas (menos de 768px) */
+@media screen and (max-width: 768px) {
+    .page {
+        width: 120%;
+    }
+}
+
+.tasks , h2 {
+    align-content:flex-start;
+    width: 100px;
+    
+    
+        
+}

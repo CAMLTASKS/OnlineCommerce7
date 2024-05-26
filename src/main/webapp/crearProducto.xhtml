@@ -1,0 +1,114 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <body>
+
+        <ui:composition template="./TemplateOnlineCommerce.xhtml">
+
+            <ui:define name="top">
+                <div class="navbar">
+                    <div class="logo"><img src="resources/img/Logo.png" width="50px" height="40px"> </img></div>
+
+
+                    <!--Barra Busqueda-->
+                    <div class="search">
+                        <input placeholder="Search..." type="text"> </input>
+                        <h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;" outcome="dashboard.xhtml" value="Dashboard" />
+                      </div>
+
+                    <!--Botones-->
+                    <div class="button-container">
+                        <button class="button">
+                            <img src="resources/img/casa.png" style="width: 40px; height: 40px;"> </img>
+                        </button>
+
+                        <button class="button">
+                            <img src="resources/img/usuario.png" style="width: 40px; height: 40px;"> </img>
+                        </button>
+
+                        <a href="file:///C:/Users/User/Documents/Online-Commerce-Scrum/Carrito.html">
+                            <button class="button">
+                                <img src="resources/img/carrito.png" style="width: 40px; height: 40px;"> </img>
+                            </button>
+                        </a>
+                    </div>
+
+                </div>
+            </ui:define>
+
+            <ui:define name="content">
+                <f:view>
+
+
+                    <h:form>
+                        <h1><h:outputText value="Create/Edit"/></h1>
+                        <h:panelGrid columns="2">
+                            <h:outputLabel value="NombreProducto:" for="nombreProducto" />
+                            <h:inputText id="nombreProducto" value="#{controllerProduct.produ.nombreProducto}" title="NombreProducto" required="true" requiredMessage="The NombreProducto field is required."/>
+                            <h:outputLabel value="Descripcion:" for="descripcion" />
+                            <h:inputText id="descripcion" value="#{controllerProduct.produ.descripcion}" title="Descripcion" required="true" requiredMessage="The Descripcion field is required."/>
+                            <h:outputLabel value="Precio:" for="precio" />
+                            <h:inputText id="precio" value="#{controllerProduct.produ.precio}" title="Precio" required="true" requiredMessage="The Precio field is required."/>
+                            <h:outputLabel value="FechaVencimiento:" for="fechaVencimiento" />
+                            <h:inputText id="fechaVencimiento" value="#{controllerProduct.produ.fechaVencimiento}" title="FechaVencimiento" >
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:inputText>
+                            <h:outputLabel value="Deleted:" for="deleted" />
+                            <h:inputText id="deleted" value="#{controllerProduct.produ.deleted}" title="Deleted" />
+                            <h:outputLabel value="FechaModificado:" for="fechaModificado" />
+                            <h:inputText id="fechaModificado" value="#{controllerProduct.produ.fechaModificado}" title="FechaModificado" >
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:inputText>
+                            <h:outputLabel value="FechaCreacion:" for="fechaCreacion" />
+                            <h:inputText id="fechaCreacion" value="#{controllerProduct.produ.fechaCreacion}" title="FechaCreacion" >
+                                <f:convertDateTime pattern="MM/dd/yyyy" />
+                            </h:inputText>
+                            <h:outputLabel value="IdCategoriaProducto:" for="idCategoriaProducto" />
+                            <h:selectOneMenu id="idCategoriaProducto" value="#{controllerProduct.cateProd.idCategoria}" title="IdCategoriaProducto" >
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{controllerProduct.listaCategoria}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="IdImagen:" for="idImagen" />
+                            <h:selectOneMenu id="idImagen" value="#{controllerProduct.produ.idImagen}" title="IdImagen" >
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{fixme}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="IdUsuarioModified:" for="idUsuarioModified" />
+                            <h:selectOneMenu id="idUsuarioModified" value="#{controllerProduct.produ.idUsuarioModified}" title="IdUsuarioModified" >
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{fixme}"/>
+                            </h:selectOneMenu>
+                            <h:outputLabel value="IdUsuarioCreacion:" for="idUsuarioCreacion" />
+                            <h:selectOneMenu id="idUsuarioCreacion" value="#{controllerProduct.produ.idUsuarioCreacion}" title="IdUsuarioCreacion" >
+                                <!-- TODO: update below reference to list of available items-->
+                                <f:selectItems value="#{fixme}"/>
+                            </h:selectOneMenu>
+                        </h:panelGrid>
+                        <h:commandButton value="Crear Producto" action="#{controllerProduct.crearProducto()}" rendered="#{empty controllerProduct.produ.nombreProducto}" />
+                        <h:commandButton value="Actualizar Producto" action="#{controllerProduct.actualizarProducto()}" rendered="#{not empty controllerProduct.produ.nombreProducto}" />
+                        <h:button outcome="mostrarProductos.xhtml" value="Volver"></h:button>
+
+                    </h:form>
+                </f:view>
+
+            </ui:define>
+
+            <ui:define name="bottom">
+                <footer class="page padding trim">
+                    <div class="type">
+                        <p class="text-center">© 2021 Online Commerce. Todos los derechos reservados.</p>
+                        <p class="text-center">Calle Principal 123, Ciudad, Estado</p>
+                        <p class="text-center">Teléfono: 123-456-7890</p>
+                        <p class="text-center">Correo electrónico: info@onlinecommerce.com</p>
+                    </div>
+              </footer>
+            </ui:define>
+
+        </ui:composition>
+
+    </body>
+</html>

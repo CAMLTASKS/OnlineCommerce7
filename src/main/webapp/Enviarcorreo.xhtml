@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
 
@@ -43,17 +44,17 @@
                 <h:form>
                     <h3>Enviar Correo Electrónico</h3>
                     <h:panelGrid columns="3" >
-                    <h:outputLabel for="destinatario">Destinatario:</h:outputLabel>
-                    <h:inputText id="destinatario" value="#{correoBean.destinatario}" required="true" />
-                    <h:message for="destinatario" />        
-                    <h:outputLabel for="asunto">Asunto:</h:outputLabel>
-                    <h:inputText id="asunto" value="#{correoBean.asunto}" required="true" />
-                    <h:message for="asunto" />        
-                    <h:outputLabel for="mensaje">Mensaje:</h:outputLabel>
-                    <h:inputTextarea id="mensaje" value="#{correoBean.mensaje}" rows="5" cols="30" required="true" />
-                    <h:message for="mensaje" />
+                    <p:outputLabel for="destinatario">Destinatario:</p:outputLabel>
+                    <p:inputText id="destinatario" value="#{correoBean.destinatario}" required="true" />
+                    <p:message for="destinatario" />        
+                    <p:outputLabel for="asunto">Asunto:</p:outputLabel>
+                    <p:inputText id="asunto" value="#{correoBean.asunto}" required="true" />
+                    <p:message for="asunto" />        
+                    <p:outputLabel for="mensaje">Mensaje:</p:outputLabel>
+                    <p:inputTextarea id="mensaje" value="#{correoBean.mensaje}" rows="5" cols="30" required="true" />
+                    <p:message for="mensaje" />
                     </h:panelGrid>
-                    <h:commandButton value="Enviar Correo" action="#{correoBean.enviarCorreo}" />
+                    <p:commandButton value="Enviar Correo" action="#{correoBean.enviarCorreo}" />
                 </h:form>
             </ui:define>
 

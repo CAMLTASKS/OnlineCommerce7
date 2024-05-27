@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
 
@@ -47,50 +48,50 @@
                     <h:form>
                         <h1><h:outputText value="Create/Edit"/></h1>
                         <h:panelGrid columns="2">
-                            <h:outputLabel value="NombreProducto:" for="nombreProducto" />
-                            <h:inputText id="nombreProducto" value="#{controllerProduct.produ.nombreProducto}" title="NombreProducto" required="true" requiredMessage="The NombreProducto field is required."/>
-                            <h:outputLabel value="Descripcion:" for="descripcion" />
-                            <h:inputText id="descripcion" value="#{controllerProduct.produ.descripcion}" title="Descripcion" required="true" requiredMessage="The Descripcion field is required."/>
-                            <h:outputLabel value="Precio:" for="precio" />
-                            <h:inputText id="precio" value="#{controllerProduct.produ.precio}" title="Precio" required="true" requiredMessage="The Precio field is required."/>
-                            <h:outputLabel value="FechaVencimiento:" for="fechaVencimiento" />
-                            <h:inputText id="fechaVencimiento" value="#{controllerProduct.produ.fechaVencimiento}" title="FechaVencimiento" >
+                            <p:outputLabel value="NombreProducto:" for="nombreProducto" />
+                            <p:inputText id="nombreProducto" value="#{controllerProduct.produ.nombreProducto}" title="NombreProducto" required="true" requiredMessage="The NombreProducto field is required."/>
+                            <p:outputLabel value="Descripcion:" for="descripcion" />
+                            <p:inputText id="descripcion" value="#{controllerProduct.produ.descripcion}" title="Descripcion" required="true" requiredMessage="The Descripcion field is required."/>
+                            <p:outputLabel value="Precio:" for="precio" />
+                            <p:inputText id="precio" value="#{controllerProduct.produ.precio}" title="Precio" required="true" requiredMessage="The Precio field is required."/>
+                            <p:outputLabel value="FechaVencimiento:" for="fechaVencimiento" />
+                            <p:inputText id="fechaVencimiento" value="#{controllerProduct.produ.fechaVencimiento}" title="FechaVencimiento" >
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:inputText>
-                            <h:outputLabel value="Deleted:" for="deleted" />
-                            <h:inputText id="deleted" value="#{controllerProduct.produ.deleted}" title="Deleted" />
-                            <h:outputLabel value="FechaModificado:" for="fechaModificado" />
-                            <h:inputText id="fechaModificado" value="#{controllerProduct.produ.fechaModificado}" title="FechaModificado" >
+                            </p:inputText>
+                            <p:outputLabel value="Deleted:" for="deleted" />
+                            <p:inputText id="deleted" value="#{controllerProduct.produ.deleted}" title="Deleted" />
+                            <p:outputLabel value="FechaModificado:" for="fechaModificado" />
+                            <p:inputText id="fechaModificado" value="#{controllerProduct.produ.fechaModificado}" title="FechaModificado" >
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:inputText>
-                            <h:outputLabel value="FechaCreacion:" for="fechaCreacion" />
-                            <h:inputText id="fechaCreacion" value="#{controllerProduct.produ.fechaCreacion}" title="FechaCreacion" >
+                            </p:inputText>
+                            <p:outputLabel value="FechaCreacion:" for="fechaCreacion" />
+                            <p:inputText id="fechaCreacion" value="#{controllerProduct.produ.fechaCreacion}" title="FechaCreacion" >
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:inputText>
-                            <h:outputLabel value="IdCategoriaProducto:" for="idCategoriaProducto" />
-                            <h:selectOneMenu id="idCategoriaProducto" value="#{controllerProduct.cateProd.idCategoria}" title="IdCategoriaProducto" >
+                            </p:inputText>
+                            <p:outputLabel value="IdCategoriaProducto:" for="idCategoriaProducto" />
+                            <p:selectOneMenu id="idCategoriaProducto" value="#{controllerProduct.cateProd.idCategoria}" title="IdCategoriaProducto" >
                                 <!-- TODO: update below reference to list of available items-->
                                 <f:selectItems value="#{controllerProduct.listaCategoria}"/>
-                            </h:selectOneMenu>
-                            <h:outputLabel value="IdImagen:" for="idImagen" />
-                            <h:selectOneMenu id="idImagen" value="#{controllerProduct.produ.idImagen}" title="IdImagen" >
+                            </p:selectOneMenu>
+                            <p:outputLabel value="IdImagen:" for="idImagen" />
+                            <p:selectOneMenu id="idImagen" value="#{controllerProduct.produ.idImagen}" title="IdImagen" >
                                 <!-- TODO: update below reference to list of available items-->
                                 <f:selectItems value="#{fixme}"/>
-                            </h:selectOneMenu>
-                            <h:outputLabel value="IdUsuarioModified:" for="idUsuarioModified" />
-                            <h:selectOneMenu id="idUsuarioModified" value="#{controllerProduct.produ.idUsuarioModified}" title="IdUsuarioModified" >
+                            </p:selectOneMenu>
+                            <p:outputLabel value="IdUsuarioModified:" for="idUsuarioModified" />
+                            <p:selectOneMenu id="idUsuarioModified" value="#{controllerProduct.produ.idUsuarioModified}" title="IdUsuarioModified" >
                                 <!-- TODO: update below reference to list of available items-->
                                 <f:selectItems value="#{fixme}"/>
-                            </h:selectOneMenu>
-                            <h:outputLabel value="IdUsuarioCreacion:" for="idUsuarioCreacion" />
-                            <h:selectOneMenu id="idUsuarioCreacion" value="#{controllerProduct.produ.idUsuarioCreacion}" title="IdUsuarioCreacion" >
+                            </p:selectOneMenu>
+                            <p:outputLabel value="IdUsuarioCreacion:" for="idUsuarioCreacion" />
+                            <p:selectOneMenu id="idUsuarioCreacion" value="#{controllerProduct.produ.idUsuarioCreacion}" title="IdUsuarioCreacion" >
                                 <!-- TODO: update below reference to list of available items-->
                                 <f:selectItems value="#{fixme}"/>
-                            </h:selectOneMenu>
+                            </p:selectOneMenu>
                         </h:panelGrid>
-                        <h:commandButton value="Crear Producto" action="#{controllerProduct.crearProducto()}" rendered="#{empty controllerProduct.produ.nombreProducto}" />
-                        <h:commandButton value="Actualizar Producto" action="#{controllerProduct.actualizarProducto()}" rendered="#{not empty controllerProduct.produ.nombreProducto}" />
-                        <h:button outcome="mostrarProductos.xhtml" value="Volver"></h:button>
+                        <p:commandButton value="Crear Producto" action="#{controllerProduct.crearProducto()}" rendered="#{empty controllerProduct.produ.nombreProducto}" />
+                        <p:commandButton value="Actualizar Producto" action="#{controllerProduct.actualizarProducto()}" rendered="#{not empty controllerProduct.produ.nombreProducto}" />
+                        <p:button outcome="mostrarProductos.xhtml" value="Volver"></p:button>
 
                     </h:form>
                 </f:view>

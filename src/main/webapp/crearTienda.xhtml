@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
 
@@ -48,45 +49,45 @@
                     <h:form>
                         <h1><h:outputText value="Create/Edit"/></h1>
                         <h:panelGrid columns="2">
-                            <h:outputLabel value="Nombre:" for="nombre" />
-                            <h:inputText id="nombre" value="#{controllerTienda.tienda.nombre}" title="Nombre" required="true" requiredMessage="The Nombre field is required."/>
-                            <h:outputLabel value="Telefono:" for="telefono" />
-                            <h:inputText id="telefono" value="#{controllerTienda.tienda.telefono}" title="Telefono" required="true" requiredMessage="The Telefono field is required."/>
-                            <h:outputLabel value="Descripcion:" for="descripcion" />
-                            <h:inputText id="descripcion" value="#{controllerTienda.tienda.descripcion}" title="Descripcion" />
-                            <h:outputLabel value="Correo:" for="correo" />
-                            <h:inputText id="correo" value="#{controllerTienda.tienda.correo}" title="Correo" />
-                            <h:outputLabel value="Instagram:" for="instagram" />
-                            <h:inputText id="instagram" value="#{controllerTienda.tienda.instagram}" title="Instagram" />
-                            <h:outputLabel value="FechaCreacion:" for="fechaCreacion" />
-                            <h:inputText id="fechaCreacion" value="#{controllerTienda.tienda.fechaCreacion}" title="FechaCreacion" >
+                            <p:outputLabel value="Nombre:" for="nombre" />
+                            <p:inputText id="nombre" value="#{controllerTienda.tienda.nombre}" title="Nombre" required="true" requiredMessage="The Nombre field is required."/>
+                            <p:outputLabel value="Telefono:" for="telefono" />
+                            <p:inputText id="telefono" value="#{controllerTienda.tienda.telefono}" title="Telefono" required="true" requiredMessage="The Telefono field is required."/>
+                            <p:outputLabel value="Descripcion:" for="descripcion" />
+                            <p:inputText id="descripcion" value="#{controllerTienda.tienda.descripcion}" title="Descripcion" />
+                            <p:outputLabel value="Correo:" for="correo" />
+                            <p:inputText id="correo" value="#{controllerTienda.tienda.correo}" title="Correo" />
+                            <p:outputLabel value="Instagram:" for="instagram" />
+                            <p:inputText id="instagram" value="#{controllerTienda.tienda.instagram}" title="Instagram" />
+                            <p:outputLabel value="FechaCreacion:" for="fechaCreacion" />
+                            <p:inputText id="fechaCreacion" value="#{controllerTienda.tienda.fechaCreacion}" title="FechaCreacion" >
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:inputText>
-                            <h:outputLabel value="Deleted:" for="deleted" />
-                            <h:inputText id="deleted" value="#{controllerTienda.tienda.deleted}" title="Deleted" />
-                            <h:outputLabel value="FechaModificacion:" for="fechaModificacion" />
-                            <h:inputText id="fechaModificacion" value="#{controllerTienda.tienda.fechaModificacion}" title="FechaModificacion" >
+                            </p:inputText>
+                            <p:outputLabel value="Deleted:" for="deleted" />
+                            <p:inputText id="deleted" value="#{controllerTienda.tienda.deleted}" title="Deleted" />
+                            <p:outputLabel value="FechaModificacion:" for="fechaModificacion" />
+                            <p:inputText id="fechaModificacion" value="#{controllerTienda.tienda.fechaModificacion}" title="FechaModificacion" >
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:inputText>
-                            <h:outputLabel value="IdCategoria:" for="idCategoria" />
-                            <h:selectOneMenu id="idCategoria" value="#{controllerTienda.categoriaTienda.idCategoria}" title="IdCategoria" >
+                            </p:inputText>
+                            <p:outputLabel value="IdCategoria:" for="idCategoria" />
+                            <p:selectOneMenu id="idCategoria" value="#{controllerTienda.categoriaTienda.idCategoria}" title="IdCategoria" >
                                 <!-- TODO: update below reference to list of available items-->
                                 <f:selectItems value="#{controllerTienda.listaCategoria}"/>
-                            </h:selectOneMenu>
-                            <h:outputLabel value="IdUsuario:" for="idUsuario" />
-                            <h:selectOneMenu id="idUsuario" value="#{controllerTienda.tienda.idUsuario}" title="IdUsuario" >
+                            </p:selectOneMenu>
+                            <p:outputLabel value="IdUsuario:" for="idUsuario" />
+                            <p:selectOneMenu id="idUsuario" value="#{controllerTienda.tienda.idUsuario}" title="IdUsuario" >
                                 <!-- TODO: update below reference to list of available items-->
                                 <f:selectItems value="#{fixme}"/>
-                            </h:selectOneMenu>
-                            <h:outputLabel value="IdDireccion:" for="idDireccion" />
-                            <h:selectOneMenu id="idDireccion" value="#{controllerTienda.tienda.idDireccion}" title="IdDireccion" >
+                            </p:selectOneMenu>
+                            <p:outputLabel value="IdDireccion:" for="idDireccion" />
+                            <p:selectOneMenu id="idDireccion" value="#{controllerTienda.tienda.idDireccion}" title="IdDireccion" >
                                 <!-- TODO: update below reference to list of available items-->
                                 <f:selectItems value="#{fixme}"/>
-                            </h:selectOneMenu>
+                            </p:selectOneMenu>
                         </h:panelGrid>
-                        <h:commandButton value="Crear tienda" action="#{controllerTienda.crearTienda()}" rendered="#{empty controllerTienda.tienda.nombre}" />
-                        <h:commandButton value="Actualizar tienda" action="#{controllerTienda.actualizarTienda()}" rendered="#{not empty controllerTienda.tienda.nombre}" />
-                        <h:button outcome="mostrarTiendas.xhtml" value="Volver"></h:button>
+                        <p:commandButton value="Crear tienda" action="#{controllerTienda.crearTienda()}" rendered="#{empty controllerTienda.tienda.nombre}" />
+                        <p:commandButton value="Actualizar tienda" action="#{controllerTienda.actualizarTienda()}" rendered="#{not empty controllerTienda.tienda.nombre}" />
+                        <p:button outcome="mostrarTiendas.xhtml" value="Volver"></p:button>
 
                     </h:form>
                 </f:view>

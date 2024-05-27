@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
 
@@ -47,47 +48,52 @@
                     <h:form>
                         <h1><h:outputText value="Create/Edit"/></h1>
                         <h:panelGrid columns="2">
-                            <h:outputLabel value="Nombre:" for="nombre" />
-                            <h:inputText id="nombre" value="#{controllerUser.usuario.nombre}" title="Nombre" required="true" requiredMessage="The Nombre field is required."> 
+                            <p:outputLabel value="Nombre:" for="nombre" />
+                            <p:inputText id="nombre" value="#{controllerUser.usuario.nombre}" title="Nombre" required="true"> 
+                                <p:message id="mensajeusuarionombre" for="nombre" style="float: right;" />
                                 <f:validator validatorId="validadorUsuarioNombre"/>
-                            </h:inputText>
-                            <h:outputLabel value="Apellido:" for="apellido" />
-                            <h:inputText id="apellido" value="#{controllerUser.usuario.apellido}" title="Apellido" required="true" requiredMessage="The Apellido field is required."/>
-                            <h:outputLabel value="Correo:" for="correo" />
-                            <h:inputText id="correo" value="#{controllerUser.usuario.correo}" title="Correo" required="true" requiredMessage="The Correo field is required."> 
+                            </p:inputText>
+                            <p:outputLabel value="Apellido:" for="apellido" />
+                            <p:inputText id="apellido" value="#{controllerUser.usuario.apellido}" title="Apellido" required="true" requiredMessage="The Apellido field is required."> 
+                                
+                            </p:inputText>
+                            <p:outputLabel value="Correo:" for="correo" />
+                            <p:inputText id="correo" value="#{controllerUser.usuario.correo}" title="Correo" required="true"> 
+                                
+                                <p:message id="mensajecorreo" for="correo" style="float: right; "  />
                                 <f:validator validatorId="validadorUsuarioCorreo" />
-                            </h:inputText>
-                            <h:outputLabel value="Contrasena:" for="contrasena" />
-                            <h:inputText id="contrasena" value="#{controllerUser.usuario.contrasena}" title="Contrasena" required="true" requiredMessage="The Contrasena field is required."> 
-                                <f:validator validatorId="validadorUsuarioPassword" />
-                            </h:inputText>
-                            <h:outputLabel value="Estado:" for="estado" />
-                            <h:inputText id="estado" value="#{controllerUser.usuario.estado}" title="Estado" />
-                            <h:outputLabel value="Deleted:" for="deleted" />
-                            <h:inputText id="deleted" value="#{controllerUser.usuario.deleted}" title="Deleted" />
-                            <h:outputLabel value="FechaCreacion:" for="fechaCreacion" />
-                            <h:inputText id="fechaCreacion" value="#{controllerUser.usuario.fechaCreacion}" title="FechaCreacion" >
+                            </p:inputText>
+                            <p:outputLabel value="Contrasena:" for="contrasena" />
+                            <p:inputText id="contrasena" value="#{controllerUser.usuario.contrasena}" title="Contrasena" required="true" > 
+                                <p:message id="mensajecontraseña" for="contrasena" style="float: right;" />
+                                <f:validator validatorId="validadorUsuarioPassword"  />
+                            </p:inputText>
+                            <p:outputLabel value="Estado:" for="estado" />
+                            <p:inputText id="estado" value="#{controllerUser.usuario.estado}" title="Estado" />
+                            <p:outputLabel value="Deleted:" for="deleted" />
+                            <p:inputText id="deleted" value="#{controllerUser.usuario.deleted}" title="Deleted" />
+                            <p:outputLabel value="FechaCreacion:" for="fechaCreacion" />
+                            <p:inputText id="fechaCreacion" value="#{controllerUser.usuario.fechaCreacion}" title="FechaCreacion" >
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:inputText>
-                            <h:outputLabel value="FechaModificacion:" for="fechaModificacion" />
-                            <h:inputText id="fechaModificacion" value="#{controllerUser.usuario.fechaModificacion}" title="FechaModificacion" >
+                            </p:inputText>
+                            <p:outputLabel value="FechaModificacion:" for="fechaModificacion" />
+                            <p:inputText id="fechaModificacion" value="#{controllerUser.usuario.fechaModificacion}" title="FechaModificacion" >
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:inputText>
-                            <h:outputLabel value="Telefono:" for="telefono" />
-                            <h:inputText id="telefono" value="#{controllerUser.usuario.telefono}" title="Telefono" />
-                            <h:outputLabel value="FechaNacimiento:" for="fechaNacimiento" />
-                            <h:inputText id="fechaNacimiento" value="#{controllerUser.usuario.fechaNacimiento}" title="FechaNacimiento" >
+                            </p:inputText>
+                            <p:outputLabel value="Telefono:" for="telefono" />
+                            <p:inputText id="telefono" value="#{controllerUser.usuario.telefono}" title="Telefono" />
+                            <p:outputLabel value="FechaNacimiento:" for="fechaNacimiento" />
+                            <p:inputText id="fechaNacimiento" value="#{controllerUser.usuario.fechaNacimiento}" title="FechaNacimiento" >
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
-                            </h:inputText>
-                            <h:outputLabel value="Cedula:" for="cedula" />
-                            <h:inputText id="cedula" value="#{controllerUser.usuario.cedula}" title="Cedula" />
-                            <h:outputLabel value="TipoCedula:" for="tipoCedula" />
-                            <h:inputText id="tipoCedula" value="#{controllerUser.usuario.tipoCedula}" title="TipoCedula" />
-                            <h:outputLabel value="Genero:" for="genero" />
-                            <h:inputText id="genero" value="#{controllerUser.usuario.genero}" title="Genero" />
+                            </p:inputText>
+                            <p:outputLabel value="Cedula:" for="cedula" />
+                            <p:inputText id="cedula" value="#{controllerUser.usuario.cedula}" title="Cedula" />
+                            <p:outputLabel value="TipoCedula:" for="tipoCedula" />
+                            <p:inputText id="tipoCedula" value="#{controllerUser.usuario.tipoCedula}" title="TipoCedula" />
+                            <p:outputLabel value="Genero:" for="genero" />
+                            <p:inputText id="genero" value="#{controllerUser.usuario.genero}" title="Genero" />
                         </h:panelGrid>
-                        
-                        <h:commandButton value="Crer usuario" action="#{controllerUser.crearUsuario()}"></h:commandButton>
+                        <p:commandButton value="Crer usuario" action="#{controllerUser.crearUsuario()}" update="mensajeusuarionombre,mensajecorreo,mensajecontraseña"></p:commandButton>
                     </h:form>
                 </f:view>
 

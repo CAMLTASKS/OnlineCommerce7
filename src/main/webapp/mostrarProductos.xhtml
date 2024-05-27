@@ -19,7 +19,7 @@
                     <div class="search">
                         <input placeholder="Search..." type="text"> </input>
                         <h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;" outcome="dashboard.xhtml" value="Dashboard" />
-                      </div>
+                    </div>
 
                     <!--Botones-->
                     <div class="button-container">
@@ -41,15 +41,28 @@
                 </div>
             </ui:define>
 
+            
             <ui:define name="content">
                 <f:view>
+                    
+                    <p:menubar>
+                        <p:submenu label="Mail">
+                            <p:menuitem value="Gmail" url="http://www.google.com" />
+                            <p:menuitem value="Hotmail" url="http://www.hotmail.com" />
+                            <p:menuitem value="Yahoo Mail" url="http://mail.yahoo.com" />
+                        </p:submenu>
+                        <p:submenu label="Videos">
+                            <p:menuitem value="Youtube" url="http://www.youtube.com" />
+                            <p:menuitem value="Break" url="http://www.break.com" />
+                        </p:submenu>
+                    </p:menubar>
 
 
                     <h:form>
                         <p:commandLink value="Crear Producto" action="#{controllerProduct.crearProductoP1()}"></p:commandLink>
                         <h1><h:outputText value="List"/></h1>
                         <p:dataTable value="#{controllerProduct.all}" var="item">
-                            
+
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="NombreProducto"/>
@@ -128,14 +141,17 @@
                                 </f:facet>
                                 <h:commandButton value="Actualizar" action="#{controllerProduct.actualizarProductoP1(item)}"></h:commandButton>
                                 <h:commandButton value="Eliminar" action="#{controllerProduct.eliminarProducto(item)}" ></h:commandButton>
-                      
+
                             </p:column>
                         </p:dataTable>
                     </h:form>
                 </f:view>
+                
+                
 
             </ui:define>
 
+           
             <ui:define name="bottom">
                 <footer class="page padding trim">
                     <div class="type">
@@ -144,7 +160,7 @@
                         <p class="text-center">Teléfono: 123-456-7890</p>
                         <p class="text-center">Correo electrónico: info@onlinecommerce.com</p>
                     </div>
-              </footer>
+                </footer>
             </ui:define>
 
         </ui:composition>

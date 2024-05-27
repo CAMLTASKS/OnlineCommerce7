@@ -2,7 +2,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
     <body>
 
@@ -16,10 +17,10 @@
                     <!--Barra Busqueda-->
                     <div class="search">
                         <input placeholder="Search..." type="text"> </input>
-                        
+
                         <h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;" outcome="dashboard.xhtml" value="Dashboard" />
 
-                      </div>
+                    </div>
 
                     <!--Botones-->
                     <div class="button-container">
@@ -43,17 +44,20 @@
             </ui:define>
 
             <ui:define name="content">
-                
+
                 <div class="dashboard">
                     <aside class="menu">
                         <ul>
-                            <li><h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;" outcome="index.xhtml" value="Inicio" /></li>
+                            <li><h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;" outcome="inicio.xhtml" value="Inicio" /></li>
                             <li><h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;"  outcome="mostrarTiendas.xhtml" value="Tiendas" /></li>
                             <li><h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;"  value="Inventario" /></li>
                             <li><h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;" outcome="mostrarProductos.xhtml" value="Productos" /></li>
                             <li><h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;" outcome="Enviarcorreo.xhtml" value="Correo" /></li>
+                            <li><h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;" outcome="login.xhtml" value="Login" /></li>
+                            <li><h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;" outcome="crearUsuario.xhtml" value="Registrarse" /></li>
 
-                                                   
+
+
                         </ul>
                     </aside>
 
@@ -84,7 +88,8 @@
                             </div>
                             <div class="stat-card">
                                 <h3>Informes y Estadisticas</h3>
-                                <p>$50000</p>
+                                <p:pieChart model="#{bean.pieModel}" style="width: 200px; height: 200px;"/>
+
                             </div>
                             <div class="stat-card">
                                 <h3>Soporte y Ayuda</h3>
@@ -130,6 +135,7 @@
                         </section>
                     </aside>
                 </div>
+
 
             </ui:define>
 

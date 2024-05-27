@@ -70,10 +70,10 @@
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
                             </p:inputText>
                             <p:outputLabel value="IdCategoria:" for="idCategoria" />
-                            <p:selectOneMenu id="idCategoria" value="#{controllerTienda.categoriaTienda.idCategoria}" title="IdCategoria" >
+                            <h:selectOneMenu id="idCategoria" value="#{controllerTienda.categoriaTienda.idCategoria}" title="IdCategoria" >
                                 <!-- TODO: update below reference to list of available items-->
                                 <f:selectItems value="#{controllerTienda.listaCategoria}"/>
-                            </p:selectOneMenu>
+                            </h:selectOneMenu>
                             <p:outputLabel value="IdUsuario:" for="idUsuario" />
                             <p:selectOneMenu id="idUsuario" value="#{controllerTienda.tienda.idUsuario}" title="IdUsuario" >
                                 <!-- TODO: update below reference to list of available items-->

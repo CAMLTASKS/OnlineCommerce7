@@ -85,6 +85,7 @@ public class ControllerProduct implements Serializable {
     
     public void crearProductoP1(){
         contexto = FacesContext.getCurrentInstance();
+        this.produ = new Producto();
         try {
             contexto.getExternalContext().redirect("crearProducto.xhtml");
         } catch (Exception e) {

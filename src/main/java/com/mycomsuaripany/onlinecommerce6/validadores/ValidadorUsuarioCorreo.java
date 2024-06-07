@@ -21,7 +21,7 @@ public class ValidadorUsuarioCorreo implements Validator {
         
         // Verificar si el correo está vacío o es nulo
         if (valor == null || valor.trim().isEmpty()) {
-            throw new ValidatorException(new FacesMessage("El correo no debe estar vacío"));
+            throw new ValidatorException(new FacesMessage("Correo es requerido"));
         }
 
         // Verificar si el correo tiene un formato válido

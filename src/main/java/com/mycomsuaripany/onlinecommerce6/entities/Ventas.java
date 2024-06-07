@@ -5,6 +5,7 @@
 package com.mycomsuaripany.onlinecommerce6.entities;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.Basic;
@@ -39,7 +40,10 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Ventas.findByIdVenta", query = "SELECT v FROM Ventas v WHERE v.idVenta = :idVenta"),
     @NamedQuery(name = "Ventas.findByFechaCreacion", query = "SELECT v FROM Ventas v WHERE v.fechaCreacion = :fechaCreacion"),
     @NamedQuery(name = "Ventas.findByTotal", query = "SELECT v FROM Ventas v WHERE v.total = :total"),
-    @NamedQuery(name = "Ventas.findByEstado", query = "SELECT v FROM Ventas v WHERE v.estado = :estado")})
+    @NamedQuery(name = "Ventas.findByEstado", query = "SELECT v FROM Ventas v WHERE v.estado = :estado")
+
+})
+
 public class Ventas implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -147,6 +151,8 @@ public class Ventas implements Serializable {
         this.productoHasVentaList = productoHasVentaList;
     }
 
+    
+    
     @Override
     public int hashCode() {
         int hash = 0;

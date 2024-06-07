@@ -49,11 +49,13 @@
                         <h1><h:outputText value="Create/Edit"/></h1>
                         <h:panelGrid columns="2">
                             <p:outputLabel value="NombreProducto:" for="nombreProducto" />
-                            <p:inputText id="nombreProducto" value="#{controllerProduct.produ.nombreProducto}" title="NombreProducto" required="true" requiredMessage="The NombreProducto field is required."/>
+                            <p:inputText id="nombreProducto" value="#{controllerProduct.produ.nombreProducto}" title="NombreProducto" required="true" requiredMessage="Nombre es requerido">
+                               
+                            </p:inputText>
                             <p:outputLabel value="Descripcion:" for="descripcion" />
-                            <p:inputText id="descripcion" value="#{controllerProduct.produ.descripcion}" title="Descripcion" required="true" requiredMessage="The Descripcion field is required."/>
+                            <p:inputText id="descripcion" value="#{controllerProduct.produ.descripcion}" title="Descripcion" required="true" requiredMessage="Descripcion es requerida"/>
                             <p:outputLabel value="Precio:" for="precio" />
-                            <p:inputText id="precio" value="#{controllerProduct.produ.precio}" title="Precio" required="true" requiredMessage="The Precio field is required."/>
+                            <p:inputText id="precio" value="#{controllerProduct.produ.precio}" title="Precio" required="true" requiredMessage="Precio es Requerido."/>
                             <p:outputLabel value="FechaVencimiento:" for="fechaVencimiento" />
                             <p:inputText id="fechaVencimiento" value="#{controllerProduct.produ.fechaVencimiento}" title="FechaVencimiento" >
                                 <f:convertDateTime pattern="MM/dd/yyyy" />
@@ -89,9 +91,10 @@
                                 <f:selectItems value="#{fixme}"/>
                             </p:selectOneMenu>
                         </h:panelGrid>
-                        <p:commandButton value="Crear Producto" action="#{controllerProduct.crearProducto()}" rendered="#{empty controllerProduct.produ.nombreProducto}" />
-                        <p:commandButton value="Actualizar Producto" action="#{controllerProduct.actualizarProducto()}" rendered="#{not empty controllerProduct.produ.nombreProducto}" />
+                        <p:commandButton value="Crear Producto" action="#{controllerProduct.crearProducto()}" rendered="#{empty controllerProduct.produ.nombreProducto}" update="messages" />
+                        <p:commandButton value="Actualizar Producto" action="#{controllerProduct.actualizarProducto()}" rendered="#{not empty controllerProduct.produ.nombreProducto}" update="messages"/>
                         <p:button outcome="mostrarProductos.xhtml" value="Volver"></p:button>
+                        <p:growl id="messages" showDetail="true" />
 
                     </h:form>
                 </f:view>

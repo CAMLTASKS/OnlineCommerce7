@@ -5,6 +5,7 @@
 package com.mycomsuaripany.onlinecommerce6.modules;
 
 import com.mycomsuaripany.onlinecommerce6.entities.Ventas;
+import com.mycomsuaripany.onlinecommerce6.reportes.ReportesVentas;
 import java.util.List;
 import javax.ejb.Local;
 
@@ -29,4 +30,6 @@ public interface VentasFacadeLocal {
 
     int count();
     
+    List<ReportesVentas> datosGrafico();
+
 }

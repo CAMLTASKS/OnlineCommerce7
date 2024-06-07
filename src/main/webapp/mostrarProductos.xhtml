@@ -41,26 +41,13 @@
                 </div>
             </ui:define>
 
-            
+
             <ui:define name="content">
                 <f:view>
-                    
-                    <p:menubar>
-                        <p:submenu label="Mail">
-                            <p:menuitem value="Gmail" url="http://www.google.com" />
-                            <p:menuitem value="Hotmail" url="http://www.hotmail.com" />
-                            <p:menuitem value="Yahoo Mail" url="http://mail.yahoo.com" />
-                        </p:submenu>
-                        <p:submenu label="Videos">
-                            <p:menuitem value="Youtube" url="http://www.youtube.com" />
-                            <p:menuitem value="Break" url="http://www.break.com" />
-                        </p:submenu>
-                    </p:menubar>
-
 
                     <h:form>
                         <p:commandLink value="Crear Producto" action="#{controllerProduct.crearProductoP1()}"></p:commandLink>
-                        <h1><h:outputText value="List"/></h1>
+                        <h1><h:outputText value="Lista De Productos"/></h1>
                         <p:dataTable value="#{controllerProduct.all}" var="item">
 
                             <p:column>
@@ -139,19 +126,19 @@
                                 <f:facet name="header">
                                     <h:outputText value="Acciones"/>
                                 </f:facet>
-                                <h:commandButton value="Actualizar" action="#{controllerProduct.actualizarProductoP1(item)}"></h:commandButton>
-                                <h:commandButton value="Eliminar" action="#{controllerProduct.eliminarProducto(item)}" ></h:commandButton>
+                                <p:commandButton value="Actualizar" action="#{controllerProduct.actualizarProductoP1(item)}" style="margin-bottom: 5px"></p:commandButton>
+                                <p:commandButton value="Eliminar" action="#{controllerProduct.eliminarProducto(item)}" style="width: 104px"></p:commandButton>
 
                             </p:column>
                         </p:dataTable>
                     </h:form>
                 </f:view>
-                
-                
+
+
 
             </ui:define>
 
-           
+
             <ui:define name="bottom">
                 <footer class="page padding trim">
                     <div class="type">

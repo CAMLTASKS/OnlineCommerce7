@@ -5,9 +5,12 @@
 package com.mycomsuaripany.onlinecommerce6.modules;
 
 import com.mycomsuaripany.onlinecommerce6.entities.Ventas;
+import com.mycomsuaripany.onlinecommerce6.reportes.ReportesVentas;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -28,4 +31,18 @@ public class VentasFacade extends AbstractFacade<Ventas> implements VentasFacade
         super(Ventas.class);
     }
     
+    @Override
+    public List<ReportesVentas> datosGrafico() {
+        Query query;
+        List<ReportesVentas> lista;
+        try {
+            query = em.createQuery("SELECT NEW com.mycomsuaripany.onlinecommerce6.reportes.ReportesPedido(T.nombre, SUM(V.total)) FROM Tienda T INNER JOIN T.ventasList V GROUP BY T.nombre", ReportesVentas.class);
+            lista = query.getResultList();
+            return lista;
+        } catch (Exception e) {
+            System.out.println("Error" + e.getMessage());
+        }
+        
+        return null;
+    }
 }

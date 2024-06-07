@@ -19,7 +19,7 @@
                     <div class="search">
                         <input placeholder="Search..." type="text"> </input>
                         <h:button style="display: inline-block; padding: 10px 20px; background-color: #f8a232; color: white; font-size: 16px; text-align: center; text-decoration: none; border-radius: 25px; border: none; cursor: pointer; transition: background-color 0.3s ease;" outcome="dashboard.xhtml" value="Dashboard" />
-                      </div>
+                    </div>
 
                     <!--Botones-->
                     <div class="button-container">
@@ -49,13 +49,20 @@
                         <h1><h:outputText value="Iniciar sesion"/></h1>
                         <h:panelGrid columns="2">
                             <p:outputLabel value="Correo:" for="correo" />
-                            <p:inputText id="correo" value="#{controllerUser.usuario.correo}" title="Correo" required="true" requiredMessage="The Correo field is required."/>
+                            <p:inputText id="correo" value="#{controllerUser.usuario.correo}" title="Correo" required="true">
+                                <p:message id="mensajecorreo" for="correo" style="float: right; "  />
+                                <f:validator validatorId="validadorUsuarioCorreo" />
+                            </p:inputText>
                             <p:outputLabel value="Contrasena:" for="contrasena" />
-                            <p:inputText id="contrasena" value="#{controllerUser.usuario.contrasena}" title="Contrasena" required="true" requiredMessage="The Contrasena field is required."/>
+                            <p:inputText id="contrasena" value="#{controllerUser.usuario.contrasena}" title="Contrasena" required="true" >
+                                <p:message id="mensajecontraseña" for="contrasena" style="float: right;" />
+                                <f:validator validatorId="validadorUsuarioPassword"  />
+                            </p:inputText>
                         </h:panelGrid>
-                        
-                        <p:commandButton value="Iniciar Sesion" action="#{controllerUser.iniciarSesion()}" ></p:commandButton>
-                        
+
+                        <p:commandButton value="Iniciar Sesion" action="#{controllerUser.iniciarSesion()}" update="messages" ></p:commandButton>
+                        <p:growl id="messages" showDetail="true" />
+
                     </h:form>
                 </f:view>
 
@@ -69,7 +76,7 @@
                         <p class="text-center">Teléfono: 123-456-7890</p>
                         <p class="text-center">Correo electrónico: info@onlinecommerce.com</p>
                     </div>
-              </footer>
+                </footer>
             </ui:define>
 
         </ui:composition>

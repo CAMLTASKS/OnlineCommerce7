@@ -46,8 +46,8 @@
 
 
                     <h:form>
-                        <h:commandLink value="Crear Tienda" action="#{controllerTienda.crearTiendaP1()}"></h:commandLink>
-                        <h1><h:outputText value="List"/></h1>
+                        <p:commandLink value="Crear Tienda" action="#{controllerTienda.crearTiendaP1()}"></p:commandLink>
+                        <h1><h:outputText value="Lista De Tiendas"/></h1>
                         <p:dataTable value="#{controllerTienda.all}" var="item">
                             <p:column>
                                 <f:facet name="header">
@@ -129,8 +129,10 @@
                                 <f:facet name="header">
                                     <h:outputText value="Acciones"/>
                                 </f:facet>
-                                <h:commandButton value="Actualizar" action="#{controllerTienda.actualizarTiendaP1(item)}"></h:commandButton>
-                                <h:commandButton value="Eliminar" action="#{controllerTienda.eliminarTienda(item)}" ></h:commandButton>
+                                <p:growl id="messages" showDetail="true" />
+                                <p:commandButton value="Actualizar" action="#{controllerTienda.actualizarTiendaP1(item)}" style="margin-bottom: 5px" update="messages"></p:commandButton>
+                                <p:commandButton value="Eliminar" action="#{controllerTienda.eliminarTienda(item)}"  style="width: 104px" update="messages"></p:commandButton>
+                                
                       
                             </p:column>
                         </p:dataTable>

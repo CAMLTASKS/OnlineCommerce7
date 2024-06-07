@@ -1,13 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycomsuaripany.onlinecommerce6.modules;
 
 import com.mycomsuaripany.onlinecommerce6.entities.Pedido;
+import com.mycomsuaripany.onlinecommerce6.reportes.ReportesVentas;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
 /**
  *
@@ -27,5 +26,22 @@ public class PedidoFacade extends AbstractFacade<Pedido> implements PedidoFacade
     public PedidoFacade() {
         super(Pedido.class);
     }
+
+    @Override
+    public List<ReportesVentas> datosGrafico() {
+        Query query;
+        List<ReportesVentas> lista;
+        try {
+            query = em.createQuery("SELECT NEW com.mycomsuaripany.onlinecommerce6.reportes.ReportesPedido(T.nombre, SUM(V.total)) FROM Tienda T INNER JOIN T.ventasList V GROUP BY T.nombre", ReportesVentas.class);
+            lista = query.getResultList();
+            return lista;
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("Error" + e.getMessage());
+        }
+        
+        return null;
+    }
     
 }
+

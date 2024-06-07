@@ -41,7 +41,7 @@
                 </div>
             </ui:define>
 
-            <ui:define name="content">
+           <ui:define name="content">
                 <f:view>
 
 
@@ -54,8 +54,7 @@
                                 <f:validator validatorId="validadorUsuarioNombre"/>
                             </p:inputText>
                             <p:outputLabel value="Apellido:" for="apellido" />
-                            <p:inputText id="apellido" value="#{controllerUser.usuario.apellido}" title="Apellido" required="true" requiredMessage="The Apellido field is required."> 
-                                
+                            <p:inputText id="apellido" value="#{controllerUser.usuario.apellido}" title="Apellido" required="true" requiredMessage="Apellido: Error de validación: se necesita un valor."> 
                             </p:inputText>
                             <p:outputLabel value="Correo:" for="correo" />
                             <p:inputText id="correo" value="#{controllerUser.usuario.correo}" title="Correo" required="true"> 
@@ -93,12 +92,15 @@
                             <p:outputLabel value="Genero:" for="genero" />
                             <p:inputText id="genero" value="#{controllerUser.usuario.genero}" title="Genero" />
                         </h:panelGrid>
-                        <p:commandButton value="Crer usuario" action="#{controllerUser.crearUsuario()}" update="mensajeusuarionombre,mensajecorreo,mensajecontraseña"></p:commandButton>
+                        <p:growl id="messages" showDetail="true" life="3000" sticky="false" />
+
+
+                        <p:commandButton value="Crer usuario" action="#{controllerUser.crearUsuario()}" update="messages"></p:commandButton>
+                        
                     </h:form>
                 </f:view>
 
             </ui:define>
-
             <ui:define name="bottom">
                 <footer class="page padding trim">
                     <div class="type">

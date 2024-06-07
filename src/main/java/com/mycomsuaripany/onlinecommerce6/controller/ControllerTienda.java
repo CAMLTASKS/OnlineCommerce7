@@ -166,7 +166,7 @@ public class ControllerTienda implements Serializable {
     
     public void actualizarTienda(){
     contexto = FacesContext.getCurrentInstance();
-            try { 
+          try { 
             this.tfl.edit(tienda);
             fm = new FacesMessage (FacesMessage.SEVERITY_INFO,"El registro se ha Actualizado", "MSG_INFO");
         } catch (Exception e) {

@@ -50,13 +50,16 @@
                         <h1><h:outputText value="Create/Edit"/></h1>
                         <h:panelGrid columns="2">
                             <p:outputLabel value="Nombre:" for="nombre" />
-                            <p:inputText id="nombre" value="#{controllerTienda.tienda.nombre}" title="Nombre" required="true" requiredMessage="The Nombre field is required."/>
+                            <p:inputText id="nombre" value="#{controllerTienda.tienda.nombre}" title="Nombre" required="true" requiredMessage="Nombre es requerido."/>
                             <p:outputLabel value="Telefono:" for="telefono" />
-                            <p:inputText id="telefono" value="#{controllerTienda.tienda.telefono}" title="Telefono" required="true" requiredMessage="The Telefono field is required."/>
+                            <p:inputText id="telefono" value="#{controllerTienda.tienda.telefono}" title="Telefono" required="true" requiredMessage="Telefono es requerido."/>
                             <p:outputLabel value="Descripcion:" for="descripcion" />
                             <p:inputText id="descripcion" value="#{controllerTienda.tienda.descripcion}" title="Descripcion" />
                             <p:outputLabel value="Correo:" for="correo" />
-                            <p:inputText id="correo" value="#{controllerTienda.tienda.correo}" title="Correo" />
+                            <p:inputText id="correo" value="#{controllerTienda.tienda.correo}" title="Correo" requiredMessage="Correo es requerido"> 
+                            <p:message id="mensajecorreo" for="correo" style="float: right; "  />
+                            <f:validator validatorId="validadorUsuarioCorreo" />
+                            </p:inputText>
                             <p:outputLabel value="Instagram:" for="instagram" />
                             <p:inputText id="instagram" value="#{controllerTienda.tienda.instagram}" title="Instagram" />
                             <p:outputLabel value="FechaCreacion:" for="fechaCreacion" />
@@ -85,8 +88,12 @@
                                 <f:selectItems value="#{fixme}"/>
                             </p:selectOneMenu>
                         </h:panelGrid>
-                        <p:commandButton value="Crear tienda" action="#{controllerTienda.crearTienda()}" rendered="#{empty controllerTienda.tienda.nombre}" />
-                        <p:commandButton value="Actualizar tienda" action="#{controllerTienda.actualizarTienda()}" rendered="#{not empty controllerTienda.tienda.nombre}" />
+                        
+                        
+                        <p:commandButton value="Crear tienda" action="#{controllerTienda.crearTienda()}" rendered="#{empty controllerTienda.tienda.nombre}" update="messages"/>
+                        <p:growl id="messages" showDetail="true" />
+
+                        <p:commandButton value="Actualizar tienda" action="#{controllerTienda.actualizarTienda()}" rendered="#{not empty controllerTienda.tienda.nombre}" update="messages" />
                         <p:button outcome="mostrarTiendas.xhtml" value="Volver"></p:button>
 
                     </h:form>

@@ -107,7 +107,7 @@ public class ControllerUser implements Serializable {
         try {
             this.usuario = this.ufl.iniciarSesion(usuario);
             if (this.usuario!=null){
-            contexto.getExternalContext().redirect("index.xhtml");
+            contexto.getExternalContext().redirect("dashboard.xhtml");
             }else {
                 fm = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Usiario y/o contraseña invalidos", "MSG_ERROR");
                 contexto.addMessage(null, fm);

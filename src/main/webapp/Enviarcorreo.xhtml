@@ -45,16 +45,17 @@
                     <h3>Enviar Correo Electrónico</h3>
                     <h:panelGrid columns="3" >
                     <p:outputLabel for="destinatario">Destinatario:</p:outputLabel>
-                    <p:inputText id="destinatario" value="#{correoBean.destinatario}" required="true" />
+                    <p:inputText id="destinatario" value="#{correoBean.destinatario}" required="true" requiredMessage="Correo requerido"/>
                     <p:message for="destinatario" />        
                     <p:outputLabel for="asunto">Asunto:</p:outputLabel>
-                    <p:inputText id="asunto" value="#{correoBean.asunto}" required="true" />
+                    <p:inputText id="asunto" value="#{correoBean.asunto}" required="true" requiredMessage="Agregue un asunto"/>
                     <p:message for="asunto" />        
                     <p:outputLabel for="mensaje">Mensaje:</p:outputLabel>
-                    <p:inputTextarea id="mensaje" value="#{correoBean.mensaje}" rows="5" cols="30" required="true" />
+                    <p:inputTextarea id="mensaje" value="#{correoBean.mensaje}" rows="5" cols="30" required="true" requiredMessage="Descripcion requerida" />
                     <p:message for="mensaje" />
                     </h:panelGrid>
-                    <p:commandButton value="Enviar Correo" action="#{correoBean.enviarCorreo}" />
+                    <p:commandButton value="Enviar Correo" action="#{correoBean.enviarCorreo}" update="messages"/>
+                    <p:growl id="messages" showDetail="true" />
                 </h:form>
             </ui:define>
 

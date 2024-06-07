@@ -25,7 +25,7 @@ public class ValidadorUsuarioNombre implements Validator {
         
         // Verificar si el nombre está vacío o es nulo
         if (valor == null || valor.trim().isEmpty()) {
-            throw new ValidatorException(new FacesMessage("El nombre no debe estar vacío"));
+        throw new ValidatorException(new FacesMessage("Nombre es requerido"));
         }
 
         // Verificar si el nombre contiene solo caracteres alfabéticos

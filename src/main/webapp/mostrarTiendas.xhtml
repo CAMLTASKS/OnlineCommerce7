@@ -111,13 +111,13 @@
                                 <f:facet name="header">
                                     <h:outputText value="IdCategoria"/>
                                 </f:facet>
-                                <h:outputText value="#{item.idCategoria}"/>
+                                <h:outputText value="#{item.idCategoria.nombre}"/>
                             </p:column>
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="IdUsuario"/>
                                 </f:facet>
-                                <h:outputText value="#{item.idUsuario}"/>
+                                <h:outputText value="#{item.idUsuario.correo}"/>
                             </p:column>
                             <p:column>
                                 <f:facet name="header">
@@ -132,6 +132,7 @@
                                 <p:growl id="messages" showDetail="true" />
                                 <p:commandButton value="Actualizar" action="#{controllerTienda.actualizarTiendaP1(item)}" style="margin-bottom: 5px" update="messages"></p:commandButton>
                                 <p:commandButton value="Eliminar" action="#{controllerTienda.eliminarTienda(item)}"  style="width: 104px" update="messages"></p:commandButton>
+                                <h:button style="width: 104px" outcome="Enviarcorreo.xhtml" value="Enviar Correo" />
                                 
                       
                             </p:column>

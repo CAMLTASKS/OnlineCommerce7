@@ -1,16 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycomsuaripany.onlinecommerce6.reportes;
 
 import java.math.BigDecimal;
 
-/**
- *
- * @author Torre
- */
 public class ReportesVentas {
+
     private String nombreTienda;
     private BigDecimal total;
 
@@ -19,6 +12,7 @@ public class ReportesVentas {
         this.total = total;
     }
 
+    // Getters y setters
     public String getNombreTienda() {
         return nombreTienda;
     }
@@ -31,11 +25,7 @@ public class ReportesVentas {
         return total;
     }
 
-    public void setTotal(BigDecimal sumaPedidos) {
-        this.total = sumaPedidos;
+    public void setTotal(BigDecimal total) {
+        this.total = total;
     }
-    
-    
-    
-    
 }

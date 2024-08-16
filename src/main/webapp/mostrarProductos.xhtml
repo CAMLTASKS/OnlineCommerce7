@@ -102,25 +102,25 @@
                                 <f:facet name="header">
                                     <h:outputText value="IdCategoriaProducto"/>
                                 </f:facet>
-                                <h:outputText value="#{item.idCategoriaProducto}"/>
+                                <h:outputText value="#{item.idCategoriaProducto.nombre}"/>
                             </p:column>
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="IdImagen"/>
                                 </f:facet>
-                                <h:outputText value="#{item.idImagen}"/>
+                                <h:outputText value="#{item.idImagen.nombreArchivo}"/>
                             </p:column>
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="IdUsuarioModified"/>
                                 </f:facet>
-                                <h:outputText value="#{item.idUsuarioModified}"/>
+                                <h:outputText value="#{item.idUsuarioModified.nombre}"/>
                             </p:column>
                             <p:column>
                                 <f:facet name="header">
                                     <h:outputText value="IdUsuarioCreacion"/>
                                 </f:facet>
-                                <h:outputText value="#{item.idUsuarioCreacion}"/>
+                                <h:outputText value="#{item.idUsuarioCreacion.nombre}"/>
                             </p:column>
                             <p:column>
                                 <f:facet name="header">
@@ -128,7 +128,7 @@
                                 </f:facet>
                                 <p:commandButton value="Actualizar" action="#{controllerProduct.actualizarProductoP1(item)}" style="margin-bottom: 5px"></p:commandButton>
                                 <p:commandButton value="Eliminar" action="#{controllerProduct.eliminarProducto(item)}" style="width: 104px"></p:commandButton>
-
+                                
                             </p:column>
                         </p:dataTable>
                     </h:form>

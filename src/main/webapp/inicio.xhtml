@@ -2,7 +2,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <body>
 
@@ -23,14 +25,16 @@
 
                     <!--Botones-->
                     <div class="button-container">
-
+                        <a href="inicio.xhtml" >
                         <button class="button">
                             <img src="resources/img/casa.png" style="width: 40px; height: 40px;"> </img>
                         </button>
-
+                        </a>
+                        <a href="login.xhtml" >
                         <button class="button">
                             <img src="resources/img/usuario.png" style="width: 40px; height: 40px;"> </img>
                         </button>
+                        </a>
 
                         <a href="file:///C:/Users/User/Documents/Online-Commerce-Scrum/Carrito.html">
                             <button class="button">
@@ -196,6 +200,72 @@
                 </div>
 
 
+            </ui:define>
+            
+                        <ui:define name="content">
+                <!--Fondo-->
+                <div class="Contenedor" style="background-image: url(Imagenes/ElFondo\(1\).jpg);">
+                    <!-- Aquí va tu código de fondo y botones -->
+                </div>
+
+                <!--Barra de Bienvenida-->
+                <div class="welcome-container">
+                    <h2 id="textBienvenido">Bienvenido a Online Commerce</h2>
+                    <div class="buttons">
+                        <button class="quote-button">Realizar Cotización</button>
+                        <button class="add-store-button">Agregar Tienda</button>
+                    </div>
+                </div>
+
+                <!--Seccion de ofertas-->
+                <div class="container scroll-1">
+                    <div class="card">
+                        <div class="card__image"></div>
+                    </div>
+                    <div class="card">
+                        <div class="card__image"></div>
+                    </div>
+                </div>
+
+                <!--Top Ranking Productos --> 
+                <div class="Top-container">
+                    <h2 id="textBienvenido">Top Ranking</h2>
+                </div>
+
+                <div class="barra-productos">
+                    <p:dataTable value="#{controllerProduct.all}" var="item">
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Imagen"/>
+                            </f:facet>
+                            <h:graphicImage value="" alt="#{item.nombreProducto}" width="100" height="100"/>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Nombre"/>
+                            </f:facet>
+                            <h3>#{item.nombreProducto}</h3>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Descripción"/>
+                            </f:facet>
+                            <p>#{item.descripcion}</p>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Precio"/>
+                            </f:facet>
+                            <p>Precio: #{item.precio}</p>
+                        </p:column>
+                        <p:column>
+                            <f:facet name="header">
+                                <h:outputText value="Acciones"/>
+                            </f:facet>
+                            <p:commandButton value="Agregar al Carrito" action="#{controllerProduct.agregarAlCarrito(item)}"/>
+                        </p:column>
+                    </p:dataTable>
+                </div>
             </ui:define>
 
             <ui:define name="bottom">

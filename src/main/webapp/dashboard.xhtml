@@ -5,6 +5,8 @@
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui">
 
+    
+
     <body>
 
         <ui:composition template="./TemplateOnlineCommerce.xhtml">
@@ -88,9 +90,10 @@
                             </div>
                             <div class="stat-card">
                                 <h3>Informes y Estadisticas</h3>
-                                <h:panelGrid id="grafico">
-                                    <p:pieChart model="#{bean.pieModel}" style="height: 650px;width: 650px" />
-                                </h:panelGrid>
+                                <canvas id="ventasChart"></canvas>
+
+                                
+
                             </div>
                             <div class="stat-card">
                                 <h3>Soporte y Ayuda</h3>
@@ -153,6 +156,45 @@
             </ui:define>
 
         </ui:composition>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+    const ctx = document.getElementById('ventasChart').getContext('2d');
+    const ventasChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Tienda 1', 'Tienda 2', 'Tienda 3', 'Tienda 4', 'Tienda 5'],
+            datasets: [{
+                label: 'Ventas ($)',
+                data: [1200, 1900, 3000, 500, 2000],
+                backgroundColor: [
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(54, 162, 235, 0.2)',
+                    'rgba(255, 206, 86, 0.2)',
+                    'rgba(75, 192, 192, 0.2)',
+                    'rgba(153, 102, 255, 0.2)'
+                ],
+                borderColor: [
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(54, 162, 235, 1)',
+                    'rgba(255, 206, 86, 1)',
+                    'rgba(75, 192, 192, 1)',
+                    'rgba(153, 102, 255, 1)'
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+});
+</script>
 
     </body>
 </html>

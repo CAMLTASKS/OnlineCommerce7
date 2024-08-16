@@ -1,18 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package com.mycomsuaripany.onlinecommerce6.modules;
 
 import com.mycomsuaripany.onlinecommerce6.entities.Producto;
+import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 
-/**
- *
- * @author Torre
- */
 @Stateless
 public class ProductoFacade extends AbstractFacade<Producto> implements ProductoFacadeLocal {
 
@@ -27,5 +21,11 @@ public class ProductoFacade extends AbstractFacade<Producto> implements Producto
     public ProductoFacade() {
         super(Producto.class);
     }
-    
+
+    @Override
+    public List<Object[]> contarProductosPorCategoria() {
+        Query q = em.createQuery("SELECT p.idCategoriaProducto, COUNT(p) FROM Producto p GROUP BY p.idCategoriaProducto");
+        return q.getResultList();
+    }
+
 }
